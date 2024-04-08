@@ -3,92 +3,99 @@
 
 using namespace std;
 
-class Parser {
-private:
-    string input_string;
-    size_t index;
-    char current_token;
+string input;
+size_t index;
 
-public:
-    Parser(const string& input) : input_string(input), index(0), current_token(input[0]) {}
-
-    bool match(char expected_token) {
-        if (current_token == expected_token) {
-            index++;
-            if (index < input_string.length()) {
-                current_token = input_string[index];
-            }
-            return true;
-        }
-        return false;
-    }
-
-    bool parse_S() {
-        if (parse_X() && match('$')) {
-            return true;
-        }
-        return false;
-    }
-
-    bool parse_X() {
-        if (parse_Y() && parse_X_prime()) {
-            return true;
-        }
-        return false;
-    }
-
-    bool parse_X_prime() {
-        if (match('%')) {
-            if (parse_Y() && parse_X_prime()) {
-                return true;
-            }
-        }
+bool match(char expected) {
+    if (input[index] == expected) {
+        index++;
         return true;
     }
+    return false;
+}
 
-    bool parse_Y() {
-        if (parse_Z() && parse_Y_prime()) {
-            return true;
+bool Z();
+
+bool Y_prime() {
+    if (input[index] == '&') {
+        index++;
+        if (Z()) {
+            return Y_prime();
         }
         return false;
     }
+    return true;
+}
 
-    bool parse_Y_prime() {
-        if (match('&')) {
-            if (parse_Z() && parse_Y_prime()) {
-                return true;
-            }
+bool Y() {
+    if (Z()) {
+        return Y_prime();
+    }
+    return false;
+}
+
+bool X_prime() {
+    if (input[index] == '%') {
+        index++;
+        if (Y()) {
+            return X_prime();
         }
+        return false;
+    }
+    return true;
+}
+
+bool X() {
+    if (Y()) {
+        return X_prime();
+    }
+    return false;
+}
+
+bool S() {
+    if (X()) {
+        return match('$');
+    }
+    return false;
+}
+
+bool Z() {
+    if (input[index] == 'k') {
+        index++;
+        if (X()) {
+            return match('k');
+        }
+        return false;
+    } else if (input[index] == 'g') {
+        index++;
         return true;
     }
+    return false;
+}
 
-    bool parse_Z() {
-        if (match('k') && parse_X() && match('k')) {
-            return true;
-        }
-        else if (match('g')) {
-            return true;
-        }
-        return false;
-    }
-
-    bool parse() {
-        return parse_S();
-    }
-};
+bool parse(const string& str) {
+    input = str;
+    index = 0;
+    return S() && index == input.length();
+}
 
 int main() {
-    string input;
-    cout << "Enter a string to parse: ";
-    cin >> input;
+    string userInput;
+    char choice;
 
-    Parser parser(input);
-    if (parser.parse()) {
-        cout << "String is in the language" << endl;
-    }
-    else {
-        cout << "String is not in the language" << endl;
-    }
+    do {
+        cout << "Enter a string to parse: ";
+        cin >> userInput;
+
+        if (parse(userInput)) {
+            cout << "Accepted" << endl;
+        } else {
+            cout << "Rejected" << endl;
+        }
+
+        cout << "Do you want to enter another string? (y/n): ";
+        cin >> choice;
+    } while (choice == 'y' || choice == 'Y');
 
     return 0;
 }
