@@ -1,0 +1,17 @@
+D:\BSCS Notes New\7th Semester\Compiler Construction\Lab New\Lab10\Lab10\bin\Debug\Lab10.exe.config
+F:\cc labs\Lab10\Lab10\bin\Debug\Lab10.exe.config
+F:\cc labs\Lab10\Lab10\bin\Debug\Lab10.exe
+F:\cc labs\Lab10\Lab10\bin\Debug\Lab10.pdb
+F:\cc labs\Lab10\Lab10\obj\Debug\Lab10.csprojResolveAssemblyReference.cache
+F:\cc labs\Lab10\Lab10\obj\Debug\Lab10.Properties.Resources.resources
+F:\cc labs\Lab10\Lab10\obj\Debug\Lab10.csproj.GenerateResource.Cache
+F:\cc labs\Lab10\Lab10\obj\Debug\Lab10.exe
+F:\cc labs\Lab10\Lab10\obj\Debug\Lab10.pdb
+F:\compiler sp2020 online\cc labs\Lab10\Lab10\bin\Debug\Lab10.exe.config
+F:\compiler sp2020 online\cc labs\Lab10\Lab10\obj\Debug\Lab10.exe
+F:\compiler sp2020 online\cc labs\Lab10\Lab10\obj\Debug\Lab10.pdb
+F:\compiler sp2020 online\cc labs\Lab10\Lab10\bin\Debug\Lab10.exe
+F:\compiler sp2020 online\cc labs\Lab10\Lab10\bin\Debug\Lab10.pdb
+F:\compiler sp2020 online\cc labs\Lab10\Lab10\obj\Debug\Lab10.csprojResolveAssemblyReference.cache
+F:\compiler sp2020 online\cc labs\Lab10\Lab10\obj\Debug\Lab10.Properties.Resources.resources
+F:\compiler sp2020 online\cc labs\Lab10\Lab10\obj\Debug\Lab10.csproj.GenerateResource.Cache
